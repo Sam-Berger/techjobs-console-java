@@ -2,6 +2,7 @@ package org.launchcode.techjobs.console;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -110,7 +111,28 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        if (someJobs.size() == 0) {
+            System.out.println("There are no jobs that match the description");
+        }
+        else {
+            /* The lazy way...does not allow for growth in job description categories
+            for (int i = 0; i < someJobs.size(); i++) {
+                System.out.print("*****\n");
+                System.out.print("position type: " + someJobs.get(i).get("position type") + "\n");
+                System.out.print("name: " + someJobs.get(i).get("name") + "\n");
+                System.out.print("employer: " + someJobs.get(i).get("employer") + "\n");
+                System.out.print("location: " + someJobs.get(i).get("location") + "\n");
+                System.out.print("core competency: " + someJobs.get(i).get("core competency") + "\n");
+                System.out.print("*****\n");
 
-        System.out.println("printJobs is not implemented yet");
+             */
+            for (int i = 0; i < someJobs.size(); i++) {
+                System.out.print("*****\n");
+                for (Map.Entry<String, String> key : someJobs.get(i).entrySet()) {
+                    System.out.println(key.getKey() + ": " + key.getValue());
+                }
+                System.out.print("*****\n");
+            }
+        }
     }
 }
